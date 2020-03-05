@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: model-server-external
+spec:
+  type: LoadBalancer
+  selector:
+    app: model-server
+  ports:
+  - name: modelserver
+    port: 80
+    targetPort: 8080
