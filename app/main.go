@@ -8,7 +8,7 @@ import (
 
 func main() {
 
-  http.Handle("/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+  http.Handle("/app", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 	  log.Println("Hello World!")
 	}))
 

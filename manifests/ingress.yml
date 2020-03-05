@@ -13,3 +13,7 @@ spec:
           backend:
             serviceName: model-server-external
             servicePort: modelserver
+        - path: "/app/*"
+          backend:
+            serviceName: apogee-app-external
+            servicePort: apogeeapp

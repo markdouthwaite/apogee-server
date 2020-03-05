@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: model-server-external
+  name: apogee-app-external
 spec:
   type: NodePort
   selector:
-    app: model-server
+    app: apogee-app
   ports:
-  - name: modelserver
+  - name: apogeeapp
     port: 80
-    targetPort: 8080
+    targetPort: 3000

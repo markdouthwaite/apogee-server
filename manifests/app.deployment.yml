@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apogee-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apogee-app
+  template:
+    metadata:
+      labels:
+        app: apogee-app
+    spec:
+      containers:
+      - name: app
+        image: apogee-app
+        ports:
+        - containerPort: 3000
