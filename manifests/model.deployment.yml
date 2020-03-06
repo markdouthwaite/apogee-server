@@ -13,7 +13,7 @@ spec:
         app: model-server
     spec:
       containers:
-      - name: server
+      - name: model-server
         image: model-server
         ports:
         - containerPort: 8080

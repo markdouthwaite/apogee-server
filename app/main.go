@@ -25,9 +25,9 @@ type QueryResponse struct {
 
 
 
-func getVariables() (string){
-  payload := []byte(``)
-  response, err := http.Post("http://localhost:4504/inference/query", "application/json", bytes.NewBuffer(payload))
+func getVariables()(string){
+  payload := []byte(`"evidence": {"PAP": "LOW"}`)
+  response, err := http.Post("http://modelserver/inference/query", "application/json", bytes.NewBuffer(payload))
 
   if err != nil {
     panic(err)
