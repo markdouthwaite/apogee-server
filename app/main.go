@@ -5,7 +5,8 @@ import (
   "net/http"
   "html/template"
   "os"
-  // "bytes"
+  "io/ioutil"
+  "bytes"
 
   "github.com/gorilla/mux"
 )
@@ -18,10 +19,25 @@ type Page struct {
 }
 
 
+type QueryResponse struct {
+
+}
+
+
 
 func getVariables() (string){
-  // payload := []byte(``)
-  // resp, _ := http.Post("http://localhost:4504/inference/query", "application/json", bytes.NewBuffer(payload))
+  payload := []byte(``)
+  response, err := http.Post("http://localhost:4504/inference/query", "application/json", bytes.NewBuffer(payload))
+
+  if err != nil {
+    panic(err)
+  }
+
+  defer response.Body.Close()
+
+  body, err := ioutil.ReadAll(response.Body)
+
+  println(body)
 
   return "test"
 }
@@ -44,6 +60,7 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 
 
 func main() {
+  println(getVariables())
   r := mux.NewRouter()
   r.HandleFunc("/app", HomeHandler)
 
