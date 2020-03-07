@@ -6,7 +6,7 @@ import (
   "html/template"
   "os"
   "io/ioutil"
-  "bytes"
+  // "bytes"
 
   "github.com/gorilla/mux"
 )
@@ -26,8 +26,10 @@ type QueryResponse struct {
 
 
 func getVariables()(string){
-  payload := []byte(`"evidence": {"PAP": "LOW"}`)
-  response, err := http.Post("http://modelserver/inference/query", "application/json", bytes.NewBuffer(payload))
+  // payload := []byte(`"evidence": {"PAP": "LOW"}`)
+  // response, err := http.Post("http://modelserver/inference/query", "application/json", bytes.NewBuffer(payload))
+
+  response, err := http.Get("http://modelserver/inference/health")
 
   if err != nil {
     panic(err)
